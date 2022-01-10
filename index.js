@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const carrier = document.querySelector('.carrier-container');
   const startButton =document.querySelector('#start');
   const rotateButton = document.querySelector('#rotate');
-  const turnDisplay = document.querySelector('#whose-go');
+  const turnDisplay = document.querySelector('#whose go');
   const infoDisplay = document.querySelector('#info')
   const userSquares = [];
   const computerSquares = [];
@@ -192,13 +192,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function playGame(){
     if(isGameOver) return
     if(currentPlayer === 'user'){
-      turnDisplay
+      turnDisplay.innerHTML = 'Your go'
       computerSquares.forEach(square => square.addEventListener('click', function(e) {
         revealSquare(square)
       }))
     }
     if(currentPlayer === 'computer'){
       turnDisplay.innerHTML = 'Computers go'
+      setTimeout(computerGo, 1000)
     }
   }
   startButton.addEventListener('click', playGame)
@@ -209,18 +210,39 @@ document.addEventListener('DOMContentLoaded', () => {
   let buttleShipCount = 0;
   let carrierCount = 0;
   function revealSquare(square) {
-    if (square.classList.contains('destroyer')) destroyerCount++
-    if (square.classList.contains('submarine')) submarineCount++
-    if (square.classList.contains('cruiser')) cruiserCount++
-    if (square.classList.contains('buttleShip')) buttleShipCount++
-    if (square.classList.contains('carrierShip')) carrierCount++
-
+    if(square.classList.contains('boom')){
+      if (square.classList.contains('destroyer')) destroyerCount++
+      if (square.classList.contains('submarine')) submarineCount++
+      if (square.classList.contains('cruiser')) cruiserCount++
+      if (square.classList.contains('buttleShip')) buttleShipCount++
+      if (square.classList.contains('carrierShip')) carrierCount++
+    }
     if(square.classList.contains('taken')) {
       square.classList.add('boom');
-      console.log('click');
+    } else {
+      square.classList.add('miss')
     }
+    currentPlayer = 'computer'
+    playGame
   }
-
+  let cpuDestroyerCount = 0;
+  let cpuSubmarineCount = 0;
+  let cpuCruiserCount = 0;
+  let cpuButtleShipCount = 0;
+  let cpuCarrierCount = 0;
+  function computerGo() {
+    let random = Math.floor(Math.random * userSquares.length)
+    if(!userSquares[random].classList.contains('boom')){
+      userSquares[random].classList.add('boom')
+      if (userSquares[random].classList.contains('destroyer')) cpuDestroyerCount++
+      if (userSquares[random].classList.contains('submarine')) cpuSubmarineCount++
+      if (userSquares[random].classList.contains('cruiser')) cpuCruiserCount++
+      if (userSquares[random].classList.contains('buttleShip')) cpuButtleShipCount++
+      if (userSquares[random].classList.contains('carrierShip')) cpuCarrierCount++
+    }else computerGo()
+    currentPlayer = 'user'
+    turnDisplay.innerHTML = 'Your go'
+  }
 })
 
 
