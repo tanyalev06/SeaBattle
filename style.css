@@ -1,0 +1,101 @@
+.container {
+    display: flex;
+}
+
+.grid-user {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: blue;
+    margin: 20px;
+}
+
+.grid div {
+    width: 40px;
+    height: 40px;
+}
+
+.grid-computer {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: lightseagreen;
+    margin: 20px;
+}
+
+.grid-display {
+    width: 400px;
+    height: 400px;
+    background-color:lightsteelblue;
+    margin: 20px;
+}
+
+.destroyer-container {
+    width: 80px;
+    height: 40px;
+    background-color: darkslateblue;
+    margin: 10px;
+    display: flex;
+}
+
+.submarine-container {
+    width: 120px;
+    height: 40px;
+    background-color: darkslategray;
+    margin: 10px;
+    display: flex;
+}
+
+.cruiser-container {
+    width: 120px;
+    height: 40px;
+    background-color:dimgrey;
+    margin: 10px;
+    display: flex;
+}
+
+.buttleship-container {
+    width: 160px;
+    height: 40px;
+    background-color: gainsboro;
+    margin: 10px;
+    display: flex;
+}
+
+.carrier-container {
+    width: 200px;
+    height: 40px;
+    background-color: rgb(150, 146, 153);
+    margin: 10px;
+    display: flex;
+}
+
+.ship div {
+width: 40px;
+height: 40px;
+}
+
+.destroyer {
+    background-color: darkslateblue;
+}
+
+.submarine {
+    background-color: darkslategray;
+}
+
+.cruiser {
+    background-color: dimgrey;
+}
+
+.buttleship {
+    background-color: gainsboro;
+}
+
+.carrier {
+    background-color: rgb(150, 146, 153);
+}
+
+
+
